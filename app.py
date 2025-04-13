@@ -37,7 +37,7 @@ def index():
              O bloco with (Gerenciador de Contexto) é a garantia 
              de que a porta sempre será fechada após o uso, 
              mantendo o código seguro e organizado.
-             Cria uma variável cliente com a consulta SELECT e a 
+             Cria-se uma variável cliente com a consulta SELECT e a 
              envia para index.
         '''
         with sqlite3.connect(BASEDADOS) as conexao:
@@ -79,8 +79,8 @@ def editar(cliente_id):
              O bloco with (Gerenciador de Contexto) é a garantia 
              de que a porta sempre será fechada após o uso, 
              mantendo o código seguro e organizado.
-             Recebe às variáveis via POST, atualiza com o comando UPDATE
-             e redireciona para index.
+             Recebe às variáveis via POST, atualiza o banco de dados
+             com o comando UPDATE e redireciona para index.
         '''
         with sqlite3.connect(BASEDADOS) as conexao:
             if request.method == 'POST':
@@ -95,6 +95,7 @@ def editar(cliente_id):
         print("Erro de conexão.") 
 
 
+# Rota para excluir o cliente.
 @app.route('/apagar/<int:cliente_id>')
 def apagar(cliente_id):
     try:
