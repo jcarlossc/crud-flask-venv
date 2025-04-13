@@ -87,9 +87,9 @@ def editar(cliente_id):
                 nome = request.form['nome']
                 cpf = request.form['cpf']
                 email = request.form['email']
-                conexao.execute("UPDATE cliente SET nome = ?, cpf = ?, email = ? WHERE id = ?", (nome, cpf, email))
+                conexao.execute("UPDATE cliente SET nome = ?, cpf = ?, email = ? WHERE id = ?", (nome, cpf, email, cliente_id))
                 return redirect(url_for('index'))
-            cliente = conexao.execute("SELECT * FROM cliente WHERE id = ?", (cliente_id)).fetchone()
+            cliente = conexao.execute("SELECT * FROM cliente WHERE id = ?", (cliente_id,)).fetchone()
         return render_template('editar.html', cliente = cliente)    
     except:    
         print("Erro de conexão.") 
@@ -106,7 +106,7 @@ def apagar(cliente_id):
              redireciona para index.
         '''
         with sqlite3.connect(BASEDADOS) as conexao:
-            conexao.execute("DELETE FROM cliente WHERE id = ?", (cliente_id))
+            conexao.execute("DELETE FROM cliente WHERE id = ?", (cliente_id,))
         return redirect(url_for('index'))    
     except:
         print("Erro de conexão.")    
