@@ -27,6 +27,7 @@ BOOTSTRAP: é um framework front-end gratuito e de código aberto que usa HTML, 
 * Executar, caso esteja no Windows, ```venv\Scripts\activate``` para iniciar o ambiente. Caso Linux ou MacOS, ```source venv/bin/activate```.
 * Executar ```pip install -r requirements.txt``` para instalar as dependências.
 * ```python app.py``` - Executa o algoritmo.
+* Em um navegador de sua preferência: ```127.0.0.1:5000```.
 * Para sair do ambiente virtual ```deactivate```.
 
 ## CONTRIBUIÇÕES:
