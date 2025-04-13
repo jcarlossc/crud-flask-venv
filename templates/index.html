@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2 class="display-6">LISTA DE CLIENTES</h2>
+    <h2 class="display-6 text-center">LISTA DE CLIENTES</h2>
     <a href="{{ url_for('criar') }}"><input type="button" class="btn btn-primary" value="Novo Cliente"></a><br /><br />
     <table class="table table-bordered">
         <thead>
@@ -26,5 +26,5 @@
             </tr>
             {% endfor %}
         </tbody>
-      </table>
+    </table>
 {% endblock %}
