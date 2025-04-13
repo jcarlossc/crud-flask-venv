@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="display-6 text-center">LISTA DE CLIENTES</h2>
+    <a href="{{ url_for('criar') }}"><input type="button" class="btn btn-primary" value="Novo Cliente"></a><br /><br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Id</th>
+                <th scope="col" class="text-center">Nome</th>
+                <th scope="col" class="text-center">Cpf</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Editar</th>
+                <th scope="col" class="text-center">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clientes in cliente %}
+            <tr>
+                <td class="text-center">{{ clientes[0] }}</td>
+                <td class="text-center">{{ clientes[1] }}</td>
+                <td class="text-center">{{ clientes[2] }}</td>
+                <td class="text-center">{{ clientes[3] }}</td>
+                <td class="text-center"><a href="{{ url_for('editar', cliente_id = clientes[0]) }}"><input type="button" class="btn btn-secondary" value="Editar"></a></td>
+                <td class="text-center"><a href="{{ url_for('apagar', cliente_id = clientes[0]) }}"  onclick="return confirm('Confirmar exclusão?')"><input type="button" class="btn btn-danger" value="Excluir"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
